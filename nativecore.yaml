@@ -1,0 +1,49 @@
+$engine: 3
+$onesync: on
+name: NativeCore Framework Base
+version: 1.0.0
+author: Matheus (xMatheusGC)
+description: Uma framework moderna, modular e de alta performance para servidores FiveM.
+
+tasks:
+  # 1. Download dos arquivos do repositório para uma pasta temporária
+  - action: download_github
+    src: https://github.com/xmatheusgc/nativecore-framework-fivem
+    ref: main
+    dest: ./tmp/nativecore
+
+  # 2. Mover os diretórios e arquivos para a raiz do servidor
+  - action: move_path
+    src: ./tmp/nativecore/resources
+    dest: ./resources
+
+  - action: move_path
+    src: ./tmp/nativecore/server.cfg.example
+    dest: ./server.cfg.example
+
+  - action: move_path
+    src: ./tmp/nativecore/permissions.cfg
+    dest: ./permissions.cfg
+
+  - action: move_path
+    src: ./tmp/nativecore/misc.cfg
+    dest: ./misc.cfg
+
+  - action: move_path
+    src: ./tmp/nativecore/README.md
+    dest: ./README.md
+
+  - action: move_path
+    src: ./tmp/nativecore/docs
+    dest: ./docs
+
+
+  # 3. Criar o server.cfg final a partir do exemplo (o txAdmin preenche os {{vars}})
+  - action: copy_path
+    src: server.cfg.example
+    dest: server.cfg
+
+  # 4. Limpar arquivos temporários
+  - action: remove_path
+    path: ./tmp
+

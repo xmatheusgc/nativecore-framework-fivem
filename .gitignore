@@ -1,0 +1,33 @@
+# FiveM Cache & Logs
+cache/
+logs/
+crashes/
+dumps/
+*.log
+.replxx_history
+
+# Configuration files (SENSITIVE DATA)
+server.cfg
+server.cfg.bkp
+!server.cfg.example
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Databases
+*.db
+*.sqlite
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies
+**/node_modules/
+**/package-lock.json
+**/yarn.lock
