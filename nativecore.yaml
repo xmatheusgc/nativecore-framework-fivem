@@ -38,12 +38,16 @@ tasks:
     dest: ./docs
 
 
-  # 3. Criar o server.cfg final a partir do exemplo (o txAdmin preenche os {{vars}})
+  # 3. Preparar Banco de Dados (txAdmin pede as credenciais ao usuário)
+  - action: connect_database
+
+  # 4. Criar o server.cfg final a partir do exemplo (o txAdmin preenche os {{vars}})
   - action: copy_path
     src: server.cfg.example
     dest: server.cfg
 
-  # 4. Limpar arquivos temporários
+  # 5. Limpar arquivos temporários
   - action: remove_path
     path: ./tmp
+
 
